@@ -1,0 +1,15 @@
+select id,
+user_id,
+scooter_hw_id,
+started_at,
+finished_at,
+start_lat,
+start_lon,
+finish_lat,
+finish_lon,
+distance distance_m,
+(price::real / 100)::decimal(20, 2) price_rub,
+extract(epoch from (finished_at - started_at)) duration_s,
+price = 0 and finished_at != started_at is_free,
+started_at::date date
+from  {{ source("scooters_raw", "trips") }}
