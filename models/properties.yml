@@ -51,4 +51,7 @@ models:
     config:
       materialized: "table"
 
-  
+  - name: "trips_users"
+    description: "Trips with users sex and age"
+    config:
+      materialized: "incremental"
