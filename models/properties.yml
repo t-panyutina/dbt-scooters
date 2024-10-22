@@ -35,3 +35,20 @@ models:
     description: "Daily trips by age statistics"
     config:
       materialized: "table"
+
+  - name: "trips_geom"
+    description: "Trips geometry"
+    config:
+      materialized: "view"
+
+  - name: "parking_start_stat"
+    description: "Start parking place statistics"
+    config:
+      materialized: "table"
+
+  - name: "parking_finish_stat"
+    description: "Finish parking place statistics"
+    config:
+      materialized: "table"
+
+  
