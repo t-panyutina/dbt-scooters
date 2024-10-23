@@ -1,0 +1,17 @@
+version: 2
+
+seeds:
+  - name: "models"
+    description: "Scooter models info and statistics"
+    config:
+      delimiter: ","
+
+  - name: "event_types"
+    description: "Types of events"
+    config:
+      delimiter: ","
+
+  - name: "age_groups"
+    description: "Age groups"
+    config:
+      delimiter: ","
