@@ -70,3 +70,33 @@ models:
       strategy: "merge"
       unique_key: ["date"]
       on_schema_change: append_new_columns
+
+  - name: "trips_concurrency"
+    description: "One-time trips"
+    config:
+      materialized: "incremental"
+
+  - name: "companies"
+    description: "Scooters per company"
+    config:
+      materialized: "table"
+
+  - name: "companies_trips"
+    description: "Trips per company"
+    config:
+      materialized: "table"
+
+  - name: "events_full"
+    description: "Full info about events"
+    config:
+      materialized: "table"
+
+  - name: "trips_age_group"
+    description: "Trips by age groups"
+    config:
+      materialized: "table"
+
+  - name: "events_stat"
+    description: "Statistics of events"
+    config:
+      materialized: "table"
