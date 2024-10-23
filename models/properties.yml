@@ -9,6 +9,8 @@ sources:
         description: "Scooter trips"
       - name: "users"
         description: "Users of scooter service"
+      - name: "events"
+        description: "Trip events"
 
 models:
   - name: "trips_prep"
@@ -55,3 +57,16 @@ models:
     description: "Trips with users sex and age"
     config:
       materialized: "incremental"
+
+  - name: "events_clean"
+    description: "Clean users events"
+    config:
+      materialized: "incremental"
+
+  - name: "revenue_daily"
+    description: "Daily revenue"
+    config:
+      materialized: "incremental"
+      strategy: "merge"
+      unique_key: ["date"]
+      on_schema_change: append_new_columns
