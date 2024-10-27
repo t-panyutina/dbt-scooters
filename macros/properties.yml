@@ -23,3 +23,10 @@ macros:
       - name: "trips_table"
         description: "Source table"
         type: "string"
+
+  - name: "create_role"
+    description: "Create role for users as dbt operation"
+    arguments:
+      - name: "name"
+        type: "string"
+        description: "Role name"

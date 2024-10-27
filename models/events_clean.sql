@@ -8,8 +8,8 @@ from
     {{ source("scooters_raw", "events") }}
 where
 {% if is_incremental() %}
-    {% if date is none%}
-        date("timestamp") = 'date{{date}}'
+    {% if date %}
+        date("timestamp") = 'date({{date}})'
     {% else %}
         "timestamp" > (select max("timestamp") from {{ this }})
     {% endif %}
