@@ -1,7 +1,7 @@
 select
     date,
     sum(price_rub) revenue_rub,
-    now() at time zone 'utc' updated_at
+    {{updated_at()}}
 from
     {{ref("trips_prep")}}
 where

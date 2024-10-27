@@ -62,6 +62,8 @@ models:
     description: "Clean users events"
     config:
       materialized: "incremental"
+      strategy: "merge"
+      unique_key: ["user_id", "timestamp", "type_id"]
 
   - name: "revenue_daily"
     description: "Daily revenue"
@@ -70,6 +72,7 @@ models:
       strategy: "merge"
       unique_key: ["date"]
       on_schema_change: append_new_columns
+      full_refresh: false
 
   - name: "trips_concurrency"
     description: "One-time trips"
