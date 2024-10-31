@@ -19,6 +19,7 @@ jobs:
       - name: Install requirements
         run: |
           pip install -r requirements.txt
+          dbt deps
 
       - name: Generate docs
         run: dbt docs generate
