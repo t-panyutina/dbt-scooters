@@ -41,9 +41,12 @@ sources:
 
 models:
   - name: "trips_prep"
-    description: "Trips preparated"
+    description: "Trips prepared for analysis"
     config:
       materialized: "view"
+    tests:
+      - row_count_same:
+          compare_model: "source('scooters_raw', 'trips')"
 
   - name: "trips_stat"
     description: "Trips statistics"
@@ -133,3 +136,27 @@ models:
     description: "Statistics of events"
     config:
       materialized: "table"
+
+  - name: "sex_age_pivot"
+    description: "Trips per age grouped by sex"
+    tests:
+      - unique_key:
+          columns: [ "age" ]
+      - dbt_expectations.expect_table_column_count_to_equal:
+          value: 3
+    columns:
+      - name: "age"
+        description: "Numerical age of user"
+        tests:
+          - "dbt_utils.not_constant"
+
+  - name: "events_stream"
+    description: "User events prepared for product analysis"
+    config:
+      materialized: "ephemeral"
+
+  - name: "book_scooter_retention"
+    description: "Retention"
+    
+
+  
