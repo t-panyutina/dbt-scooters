@@ -18,8 +18,8 @@ jobs:
 
       - name: Install requirements
         run: |
-          pip install dbt-core dbt-postgres
-          dbt deps
+          pip install -r requirements.txt
+          cp profiles.example.yml profiles.yml
 
       - name: Generate docs
         run: dbt docs generate
