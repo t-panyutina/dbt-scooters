@@ -7,6 +7,6 @@ default:
       port: 5432
       user: admin
       dbname: dev_amz5
-      password: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
+      password: rGJk7zwZ2KbMDnc6tBCVjkhB5JIM9j5h
       schema: dbt
       threads: 4
