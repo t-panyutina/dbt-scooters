@@ -1,5 +1,6 @@
 select
-    *
+    *,
+    date("timestamp") "date"
 from
     {{ ref('events_clean') }}
     left join {{ ref('event_types') }}

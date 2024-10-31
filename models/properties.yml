@@ -149,3 +149,14 @@ models:
         description: "Numerical age of user"
         tests:
           - "dbt_utils.not_constant"
+
+  - name: "events_stream"
+    description: "User events prepared for product analysis"
+    config:
+      materialized: "ephemeral"
+
+  - name: "book_scooter_retention"
+    description: "Retention"
+    
+
+  
